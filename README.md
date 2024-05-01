@@ -1,1 +1,52 @@
-# Final-Project
+### INF601 - Advanced Programming in Python
+### Janelyn Nichols
+### Final Project
+
+
+# Final Project
+## Description
+This project connects to a feed lab API and utilizes the Streamlit framework to visualize the feed sample results.
+
+### Dependencies
+
+* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* ex. Windows 10
+* List pip install instructions.
+
+### Installing
+
+* How/where to download your program
+* Any modifications needed to be made to files/folders
+
+### Executing program
+
+* How to run the program
+* Step-by-step bullets
+```
+code blocks for commands
+```
+
+## Help
+
+Any advise for common problems or issues.
+```
+command to run if program contains helper info
+```
+
+## Authors
+Janelyn Nichols
+janelyn.nichols12@gmail.com
+
+## Version History
+* 0.1
+    * Initial Release
+
+## License
+
+This project is licensed under the GNU License.
+
+## Acknowledgments
+https://blog.streamlit.io/crafting-a-dashboard-app-in-python-using-streamlit/
+https://www.youtube.com/watch?v=0ESc1bh3eIg
+https://www.youtube.com/watch?v=FBHdmZUVa-E
+
