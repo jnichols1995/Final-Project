@@ -15,8 +15,7 @@ This project connects to a feed lab API and utilizes the Streamlit framework to 
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+requirements.txt  
 
 ### Executing program
 
