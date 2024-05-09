@@ -1,28 +1,67 @@
 # INF601 - Advanced Programming in Python
 # Janelyn Nichols
 # Final Project
+import altair
+import pandas as pd
+import streamlit as st
 
-import requests
-import json
+df = pd.read_csv('tyson lot 4.2.24 - 4.30.24.csv')
+#print(df.to_string())
+
+st.title('Lots Harvested at Tyson During April')
+st.write(df)
+
+def get_tyson_data():
+    df = pd.read_csv('Tyson Lot 4.2.24 - 4.30.24.csv')
+    return df.set_index('SUPPLIER')
+try:
+    df=get_tyson_data()
+    supplier = st.multiselect('Choose Supplier', list(df.index), [129413])
+    if not supplier:
+        st.error('Please select at least one supplier.')
+    else:
+        data = df.loc[supplier]
+        st.write("###April Tyson Kills by Yard", data.sort_index())
+
+        data = data.T.reset_index()
+        data = pd.melt(data, id_vars=['index']).rename(columns={'index': 'Supplier Name', 'value': 'Kill Date'}
+        )
+        chart = (
+            alt.Chart(data)
+            .mark_area(opacity=0.3)
+            .encode()
+             )
+except EOFError as e: st.error( "This demo requires internet access. Please try again later.")
 
 
-start = "2024-5-1"
-end = "2024-5-1"
-accountId = "0"
 
-url = f"https://servitech.com/api/feeds/{start}/{end}/{accountId}"  # API URL
+"""
+df = pd.read_csv('Tyson Lot 4.2.24 - 4.30.24.csv')
+st.line_chart(df)
 
-# Servitech bearer token
-authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDYzMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTcyNDYwNjk3fQ.Yc0HNp3VyvGMmiss6FalKUL_PVksw9_7D_q_dp7v-Mw"
-headers = {  # headers
-    'Host': 'servitech.com',
-    'Authorization': 'Bearer ' + authToken,
-    'Content-Type': 'application/json'
-}
+def get_tyson_data():
+    df = pd.read_csv('Tyson Lot 4.2.24 - 4.30.24.csv')
+    return df.set_index('SUPPLIER')
 
-response = requests.get(url, headers=headers)
+try:
+    df = get_tyson_data()
+    supplier = st.multiselect('Choose Supplier', list(df.index), [129413])
+supplier = st.multiselect('Choose Supplier'), list(df['SUPPLIER'].unique())
+    if not supplier:
+        st.error('Please select at least one supplier.')
+    else:
+        data = df.loc[supplier]
+        st.write("###April Tyson Kills by Yard", data.sort_index())
 
-data = response.json()
-
-with open("servitech_data.json", "w") as file:
-    json.dump(data, file)
+        data = data.T.reset_index()
+        data = pd.melt(data, id_vars=['index']).rename(columns={'index': 'Supplier Name', 'value': 'Kill Date'}
+        )
+        chart = (
+            alt.chart(data)
+            .mark_area(opacity=0.3)
+            .encode()
+        )
+except EOFError as e:
+    st.error(
+        "This demo requires internet access. Please try again later.")
+"""

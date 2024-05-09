@@ -18,18 +18,14 @@ This project connects to a feed lab API and utilizes the Streamlit framework to 
 requirements.txt  
 
 ### Executing program
-
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+streamlit run C:\Users\Jan\PycharmProjects\Final-Project\Main.py
 ```
 
 ## Help
-
-Any advise for common problems or issues.
+If you get disconnected from the streamlit site, please run the following code in the terminal to restart.
 ```
-command to run if program contains helper info
+streamlit run yourscript.py
 ```
 
 ## Authors
