@@ -5,7 +5,7 @@
 
 # Final Project
 ## Description
-This project connects to a feed lab API and utilizes the Streamlit framework to visualize the feed sample results.
+This project utilizes a .csv of live cattle lot summary kill results and displays the information via Streamlit page. The kill information can be filtered by the supplier or the kill date. The project also displays the current weather at the Tyson Holcomb meat packing plant.
 
 ### Dependencies
 
@@ -14,12 +14,11 @@ This project connects to a feed lab API and utilizes the Streamlit framework to 
 * List pip install instructions.
 
 ### Installing
-
 requirements.txt  
 
 ### Executing program
 ```
-streamlit run C:\Users\Jan\PycharmProjects\Final-Project\Main.py
+streamlit run Main.py
 ```
 
 ## Help
